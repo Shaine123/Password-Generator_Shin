@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #28507b;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  font-family: Montserrat;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 40%;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.434);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding-right: 35px;
+  background-color: #fbfaff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.password-container input {
+  height: 50px;
+  padding-left: 20px;
+  border: none;
+  background-color: transparent;
+  font-weight: 300;
+  color: #28507b;
+  letter-spacing: 6px;
+}
+
+.password-container input:focus {
+  outline: none;
+}
+
+.password-container i {
+  color: rgb(40, 215, 40);
+  cursor: pointer;
+  font-size: 17px;
+}
