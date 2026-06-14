@@ -93,6 +93,11 @@ h1::after {
   justify-content: space-between;
 }
 
+.options .option label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
 .options .option .range-container {
   display: flex;
   gap: 5px;
@@ -168,4 +173,35 @@ h1::after {
 
 #generatePassword:active {
   transform: translateY(0);
+}
+
+.strength-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.strength-container p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.strength-container p #strength-type {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.strength-container .meter-container {
+  height: 10px;
+  width: 100%;
+  background-color: #edf7ff;
+  box-shadow: 0px 2px 4px #5858583c inset;
+}
+
+.strength-container .meter-container .meter {
+  background-color: red;
+  height: 10px;
+  width: 40%;
+  border-radius: 0 5px 5px 0;
+  transition: all ease 0.5s;
 }
