@@ -67,6 +67,7 @@ h1::after {
   font-weight: 300;
   color: #28507b;
   letter-spacing: 6px;
+  width: 100%;
 }
 
 .password-container input:focus {

@@ -19,8 +19,6 @@ rangeBar.addEventListener("input", () => {
 });
 
 function generatePassword() {
-  console.log("working");
-
   if (
     !includeUpperCase.checked &&
     !includeLowerCase.checked &&
@@ -28,5 +26,29 @@ function generatePassword() {
     !includeSymbols.checked
   ) {
     alert("Please select at lease one option!");
+  } else {
+    const newPassword = createNewPassword(rangeBar.value);
+
+    updateUserInterface(newPassword);
   }
+}
+
+function createNewPassword(length) {
+  let password = "";
+  let characters = "";
+
+  characters += includeUpperCase.checked ? UPPERCASE : "";
+  characters += includeLowerCase.checked ? LOWERCASE : "";
+  characters += includeNumbers.checked ? SYMBOLS : "";
+  characters += includeSymbols.checked ? NUMBERS : "";
+
+  for (let i = 0; i < length; i++) {
+    password += characters[Math.floor(Math.random() * characters.length)];
+  }
+
+  return password;
+}
+
+function updateUserInterface(newPassword) {
+  password.value = newPassword;
 }
