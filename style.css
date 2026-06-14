@@ -95,14 +95,77 @@ h1::after {
 
 .options .option .range-container {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
+  width: 70%;
 }
 
-.options .option .range-container input {
-  background-color: red;
+.options .option .range-container input[type="range"] {
+  accent-color: var(--primary-color);
+  height: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.options .option .range-container #length-value {
+  background-color: rgb(223, 228, 236);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.options .option input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  position: relative;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.options .option input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.options .option input[type="checkbox"]::after {
+  content: "✓";
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  left: 3px;
+  bottom: -1px;
+  font-weight: 500;
 }
 
 .options .option:last-child {
   margin-bottom: 0;
+}
+
+#generatePassword {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all ease 0.5s;
+}
+
+#generatePassword:hover {
+  transform: translateY(-5px);
+}
+
+#generatePassword:active {
+  transform: translateY(0);
 }
