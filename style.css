@@ -6,6 +6,9 @@
 }
 :root {
   --primary-color: #28507b;
+  --strong-color: #89e976;
+  --medium-color: #e8e89c;
+  --weak-color: #e55e5e;
 }
 
 body {
@@ -66,7 +69,7 @@ h1::after {
   background-color: transparent;
   font-weight: 300;
   color: #28507b;
-  letter-spacing: 6px;
+  letter-spacing: 2px;
   width: 100%;
 }
 
@@ -205,4 +208,16 @@ h1::after {
   width: 40%;
   border-radius: 0 5px 5px 0;
   transition: all ease 0.5s;
+}
+
+.strength-container .meter-container .meter.strong-color {
+  background-color: var(--strong-color);
+}
+
+.strength-container .meter-container .meter.medium-color {
+  background-color: var(--medium-color);
+}
+
+.strength-container .meter-container .meter.weak-color {
+  background-color: var(--weak-color);
 }
