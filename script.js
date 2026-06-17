@@ -8,6 +8,7 @@ const includeSymbols = document.getElementById("includeSymbols");
 const genPassBtn = document.getElementById("generatePassword");
 const strengthBar = document.getElementById("meter");
 const strengthType = document.getElementById("strength-type");
+const copyBtn = document.getElementById("copyBtn");
 
 const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
@@ -15,10 +16,13 @@ const NUMBERS = "0123456789";
 const SYMBOLS = "!@#$%^&*()_?";
 
 genPassBtn.addEventListener("click", generatePassword);
+window.addEventListener("DOMContentLoaded", generatePassword);
 
 rangeBar.addEventListener("input", () => {
   rangeValue.textContent = rangeBar.value;
 });
+
+copyBtn.addEventListener("click", copyPassword);
 
 function generatePassword() {
   if (
@@ -78,5 +82,21 @@ function updateUserInterface(length, newPassword) {
 
   defPoints = Math.max(Math.min(defPoints, 100), 25);
 
+  rangeValue.textContent = rangeBar.value;
   strengthBar.style.width = parseInt(defPoints) + "%";
+}
+
+function copyPassword() {
+  navigator.clipboard
+    .writeText(password.value)
+    .then(() => console.log("copied"))
+    .catch((err) => console.log(err));
+
+  copyBtn.classList.remove("fa-regular", "fa-copy");
+  copyBtn.classList.add("fa-solid", "fa-check");
+
+  setTimeout(() => {
+    copyBtn.classList.remove("fa-solid", "fa-check");
+    copyBtn.classList.add("fa-regular", "fa-copy");
+  }, 500);
 }
