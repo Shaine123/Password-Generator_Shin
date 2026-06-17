@@ -63,7 +63,7 @@ function updateUserInterface(length, newPassword) {
 
   if (length >= 12 && length <= 16) defPoints += 15;
 
-  if (length >= 12 && length <= 24) defPoints += 15;
+  if (length >= 12 && length <= 24) defPoints += 30;
 
   if (defPoints < 40) {
     strengthType.textContent = "Weak";
@@ -71,10 +71,12 @@ function updateUserInterface(length, newPassword) {
   } else if (defPoints >= 40 && defPoints <= 75) {
     strengthType.textContent = "Medium";
     strengthBar.style.backgroundColor = "#e8e89c";
-  } else if (defPoints >= 75 && defPoints <= 100) {
+  } else if (defPoints >= 75) {
     strengthType.textContent = "Strong";
     strengthBar.style.backgroundColor = "#89e976";
   }
+
+  defPoints = Math.max(Math.min(defPoints, 100), 25);
 
   strengthBar.style.width = parseInt(defPoints) + "%";
 }
