@@ -58,16 +58,20 @@ function createNewPassword(length) {
 function updateUserInterface(length, newPassword) {
   password.value = newPassword;
 
-  let defPoints = 10;
+  let defPoints = 0;
+
+  defPoints += Math.min(length * 2, 40);
 
   if (/[A-Z]/.test(newPassword)) defPoints += 15;
   if (/[a-z]/.test(newPassword)) defPoints += 15;
   if (/[0-9]/.test(newPassword)) defPoints += 15;
   if (/[!@#$%^&*()_?]/.test(newPassword)) defPoints += 15;
 
-  if (length >= 12 && length <= 16) defPoints += 15;
+  if (length < 8) {
+    defPoints = Math.min(defPoints, 40);
+  }
 
-  if (length >= 12 && length <= 24) defPoints += 30;
+  defPoints = Math.max(Math.min(defPoints, 100), 25);
 
   if (defPoints < 40) {
     strengthType.textContent = "Weak";
@@ -79,8 +83,6 @@ function updateUserInterface(length, newPassword) {
     strengthType.textContent = "Strong";
     strengthBar.style.backgroundColor = "#89e976";
   }
-
-  defPoints = Math.max(Math.min(defPoints, 100), 25);
 
   rangeValue.textContent = rangeBar.value;
   strengthBar.style.width = parseInt(defPoints) + "%";
